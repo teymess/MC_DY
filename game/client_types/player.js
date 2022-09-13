@@ -2035,7 +2035,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                             let myAnswer = LYL[(value)];
                                             let stringAnswer = String(myAnswer);
                                             let coloredAnswer = stringAnswer.fontcolor("#ee6933");
-                                            let coloredAnswer2 = stringAnswer.fontsize("25");
+                                            let coloredAnswer2 = coloredAnswer.fontsize("25");
                                             return '<span style=\'font-size:20px;\'>You think people living in ' +
                                             data.district + ' lose on average ' + coloredAnswer2 + ' years of life due to air pollution.</span>';
                                         }
