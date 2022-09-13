@@ -1171,8 +1171,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                       {
                           id: 'P4_q',
                           orientation: 'H',
-                          mainText: '<span style="font-weight: normal;"> Based on the leaflet above, choose the correct answer to the questions below.</span><br><br>' +
-                          '<span style="font-weight: normal;color:gray;">Q13</span> Which of the following two sentences is correct?*<br>',
+                          mainText: '<span style="font-weight: normal;"> Based on the leaflet above, answer the questions below.</span><br><br>' +
+                          'Which of the following two sentences is correct?*<br>',
                           choices: ["There is <b>nothing</b> I can do to protect myself effectively against air pollution.",
                         "There are <b>many things</b> I can do to protect myself effectively against air pollution, both indoors and outdoors."],
                           correctChoice: 1
@@ -1674,6 +1674,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                             ],
                             requiredChoice: true,
                             shuffleChoices: false,
+                            hidden: true,
                             onclick: function(value, removed) {
                               var w, forms, len;
                               forms = node.widgets.lastAppended.formsById
@@ -1695,6 +1696,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                             ],
                             requiredChoice: true,
                             shuffleChoices: false,
+                            hidden: true,
                         }
                     ]
                 }
@@ -1747,6 +1749,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                 ],
                                 requiredChoice: true,
                                 shuffleChoices: false,
+                                hidden: true,
                             }
                         ]
                     }
@@ -1799,6 +1802,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                     ],
                                     requiredChoice: true,
                                     shuffleChoices: false,
+                                    hidden: true,
                                 }
                             ]
                         }
@@ -1897,7 +1901,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                       texts: {
                           message: 'You have now completed this task and your data has been saved.' +
                           ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>' +
-                          ' <b>IMPORTANT! We will post another HIT with a follow-up survey in 2 weeks!</b>'
+                          ' <span style="color:#bf2b42;font-size:25px;"><b>IMPORTANT!</span></b> <b>We will post another HIT with a follow-up survey in</b> <span style="color:#bf2b42";><b>2 weeks</span></b>!<br><br>'
                       },
                   }
               },
