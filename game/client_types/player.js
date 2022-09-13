@@ -2276,63 +2276,71 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
 
 
-        ////////////////////////////////////////////////////////////////////////////
-        // FEEDBACK
-        stager.extendStep('feedback', {
-      widget: {
-          name: 'ChoiceManager',
-          id: 'feedback',
-          options: {
-              simplify: true,
-              mainText: '',
-              forms: [
-                  {
-                    name: 'Feedback',
-                    id: 'feedback1',
-                    minChars: 5,
-                    requiredChoice: true,
-                    showSubmit: false,
-                    mainText: 'Thank you for participating. ' +
-                    '<br><br>' +
-                    "If you want to get in touch with us for questions or suggestions, " +
-                    "please write us an email at <em><span style='color:#bf2b42'>academic.research.India@gmail.com</span></em>." +
-                    '<br><br>' +
-                    'We are very interested in ' +
-                    'hearing your <strong>feedback</strong> about the ' +
-                    'following points:<br/><br/><em><ol>' +
-                    '<li>Was the survey too long or too short?</li>' +
-                    '<li>Did you find any question unclear or ' +
-                    'uncomfortable?</li>' +
-                    '<li>Did you experience any technical difficulty?</li>' +
-                    '<li>Were the images and maps loading correctly?</li>' +
-                    '<li>How can we improve the study?</li></ol>' +
-                    "If you do not have any comment, just type 'nothing' in the box below."
-                }
-              ]
-            }
-          }
-        });
+///////////////////////////////////////////////////////////
+              // FEEDBACK
+              stager.extendStep('feedback', {
+                widget: {
+                    name: 'ChoiceManager',
+                    id: 'feedback',
+                    options: {
+                        simplify: true,
+                        mainText: '',
+                        forms: [
+                            {
+                              name: 'Feedback',
+                              id: 'feedback1',
+                              minChars: 5,
+                              requiredChoice: true,
+                              showSubmit: false,
+                              mainText: 'Thank you for participating. ' +
+                              '<br><br>' +
+                              "If you want to get in touch with us for questions or suggestions, " +
+                              "please write us an email at <em><span style='color:#bf2b42'>pob.heidelberg@gmail.com</span></em>." +
+                              '<br><br>' +
+                              'We are very interested in ' +
+                              'hearing your <strong>feedback</strong> about the ' +
+                              'following points:<br/><br/><em><ol>' +
+                              '<li>Was the survey too long or too short?</li>' +
+                              '<li>Did you find any question unclear or ' +
+                              'uncomfortable?</li>' +
+                              '<li>Did you experience any technical difficulty?</li>' +
+                              '<li>Were the images and maps loading correctly?</li>' +
+                              '<li>How can we improve the study?</li></ol>' +
+                              "If you do not have any comment, just type 'nothing' in the box below.",
+                            },
+                            {
+                              name: 'Feedback',
+                              id: 'feedback2',
+                              mainText: 'What do you think this study is about?',
+                              requiredChoice: true,
+                              minChars: 5,
+                              showSubmit: false
+                            }
+                          ]
+                        }
+                      }
+              });
 
 
-        //////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
       // END OF SURVEY
-      //////////////////////////////////////////////////////////////////////////////
-      stager.extendStep('end', {
-          widget: {
-              name: 'EndScreen',
-              options: {
-                  feedback: false,
-                  showEmailForm: false,
-                  texts: {
-                      message: 'You have now completed this task and your data has been saved.' +
-                      ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>'
-                      //' <b>Reminder: We will post another HIT with a follow-up survey in 2 weeks!<b>'
-                  },
+      //////////////////////////////////////////////////////////////////////////
+          stager.extendStep('end', {
+              widget: {
+                  name: 'EndScreen',
+                  options: {
+                      feedback: false,
+                      showEmailForm: false,
+                      texts: {
+                          message: 'You have now completed this task and your data has been saved.' +
+                          ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>' +
+                          ' <b>IMPORTANT! We will post another HIT with a follow-up survey in 2 weeks!</b>'
+                      },
+                  }
+              },
+              init: function() {
+                  node.game.doneButton.destroy();
+                  node.say('end');
               }
-          },
-          init: function() {
-              node.game.doneButton.destroy();
-              node.say('end');
-          }
-      });
-  };
+          });
+      };
