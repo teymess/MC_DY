@@ -351,7 +351,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt6',
-                        mainText: '<span style="font-weight: normal;color:gray;">T6</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T6</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -392,7 +392,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt7',
-                        mainText: '<span style="font-weight: normal;color:gray;">T7</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T7</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -433,7 +433,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt8',
-                        mainText: '<span style="font-weight: normal;color:gray;">T8</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T8</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -474,7 +474,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt9',
-                        mainText: '<span style="font-weight: normal;color:gray;">T9</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T9</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -515,7 +515,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt10',
-                        mainText: '<span style="font-weight: normal;color:gray;">T10</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T10</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -556,7 +556,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt11',
-                        mainText: '<span style="font-weight: normal;color:gray;">T11</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T11</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -597,7 +597,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt12',
-                        mainText: '<span style="font-weight: normal;color:gray;">T12</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T12</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -638,7 +638,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt13',
-                        mainText: '<span style="font-weight: normal;color:gray;">T13</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T13</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -679,7 +679,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt14',
-                        mainText: '<span style="font-weight: normal;color:gray;">T14</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T14</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -720,7 +720,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt15',
-                        mainText: '<span style="font-weight: normal;color:gray;">T15</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T15</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
