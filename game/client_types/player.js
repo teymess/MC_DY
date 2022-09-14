@@ -1056,7 +1056,6 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
     });
 
 
-
     ////////////////////////////////////////////////////
       // LYL Prior: Deciles of Pollution
       //////////////////////////////////////
@@ -1085,20 +1084,24 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                           {
                               id: 'LYL_prior',
                               orientation: 'H',
-                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of <span style="color:red;">your county </span> now. ' +
-                                        'In your opinion, which group is ' + stringDistrict +  ' (' + data.state + ') part of?',
-                              choices: [
-                                ['Group 1', '<span style=\'font-size:14px;font-weight:normal;\'>Group 1</span>'],
-                                ['Group 2', '<span style=\'font-size:14px;font-weight:normal;\'>Group 2</span>'],
-                                ['Group 3', '<span style=\'font-size:14px;font-weight:normal;\'>Group 3</span>'],
-                                ['Group 4', '<span style=\'font-size:14px;font-weight:normal;\'>Group 4</span>'],
-                                ['Group 5', '<span style=\'font-size:14px;font-weight:normal;\'>Group 5</span>'],
-                                ['Group 6', '<span style=\'font-size:14px;font-weight:normal;\'>Group 6</span>'],
-                                ['Group 7', '<span style=\'font-size:14px;font-weight:normal;\'>Group 7</span>'],
-                                ['Group 8', '<span style=\'font-size:14px;font-weight:normal;\'>Group 8</span>'],
-                                ['Group 9', '<span style=\'font-size:14px;font-weight:normal;\'>Group 9</span>'],
-                                ['Group 10', '<span style=\'font-size:14px;font-weight:normal;\'>Group 10</span>'],
-                                  ],
+                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your county ' + stringDistrict +  ' (' + data.state + '). How severe do you think the impact of air pollution is on the health of people living in ' + stringDistrict +'?<br>',
+                              hint: "Provide an answer on a scale from 1 to 10, where 1 means no impact and 10 means most severe impact.",
+                                        // 'In your opinion, which group is ' + stringDistrict +  ' (' + data.state + ') part of?',
+                              left: "No impact",
+                              right: "Most severe impact",
+                              choices: [1,2,3,4,5,6,7,8,9,10],
+                              // choices: [
+                              //   ['Group 1', '<span style=\'font-size:14px;font-weight:normal;\'>Group 1</span>'],
+                              //   ['Group 2', '<span style=\'font-size:14px;font-weight:normal;\'>Group 2</span>'],
+                              //   ['Group 3', '<span style=\'font-size:14px;font-weight:normal;\'>Group 3</span>'],
+                              //   ['Group 4', '<span style=\'font-size:14px;font-weight:normal;\'>Group 4</span>'],
+                              //   ['Group 5', '<span style=\'font-size:14px;font-weight:normal;\'>Group 5</span>'],
+                              //   ['Group 6', '<span style=\'font-size:14px;font-weight:normal;\'>Group 6</span>'],
+                              //   ['Group 7', '<span style=\'font-size:14px;font-weight:normal;\'>Group 7</span>'],
+                              //   ['Group 8', '<span style=\'font-size:14px;font-weight:normal;\'>Group 8</span>'],
+                              //   ['Group 9', '<span style=\'font-size:14px;font-weight:normal;\'>Group 9</span>'],
+                              //   ['Group 10', '<span style=\'font-size:14px;font-weight:normal;\'>Group 10</span>'],
+                              //     ],
                               shuffleChoices: false,
                               requiredChoice: true,
                               onclick: function(value, removed) {
