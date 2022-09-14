@@ -1194,7 +1194,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                       node.widgets.last.addForm({
                         name: 'Feedback',
                         id: 'P4_T_q4',
-                        mainText: 'Which actions can you take to protect yourself against air pollution outdoors and which actions can you take indoors? Summarize below.',
+                        mainText: 'Based on the box above, summarize the actions you can take to protect yourself against air pollution outdoors and indoors. ',
                         requiredChoice: true,
                         showSubmit: false,
                         minChars: 20,
