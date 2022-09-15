@@ -936,7 +936,13 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                       ],
                         shuffleChoices: false,
                         requiredChoice: true,
-                        choicesSetSize: 2
+                        choicesSetSize: 2,
+                        onclick: function(value, removed) {
+                          var w, forms;
+                          forms = node.widgets.lastAppended.formsById
+                          w = forms.q4_4;
+                          w.show();
+                        }
                     },
                     {
                         id: 'q4_4',
@@ -945,7 +951,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         choices: ['18 - 25','26 - 30','31 - 35','36 - 40','41 – 45','46 – 50','51 – 55','56 – 60','61 – 65','66 +'],
                         shuffleChoices: false,
                         requiredChoice: true,
-                        choicesSetSize: 4
+                        choicesSetSize: 4,
+                        hidden: true
                     }
                 ]
             }
