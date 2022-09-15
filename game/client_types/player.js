@@ -1084,11 +1084,11 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                           {
                               id: 'LYL_prior',
                               orientation: 'H',
-                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your county ' + stringDistrict +  ' (' + data.state + '). How severe do you think the impact of air pollution is on the health of people living in ' + stringDistrict +'?<br>',
-                              hint: "Provide an answer on a scale from 1 to 10, where 1 means no impact and 10 means most severe impact.",
+                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your county ' + stringDistrict +  ' (' + data.state + '). How bad do you think air pollution is in ' + stringDistrict +'?<br>',
+                              hint: "Provide an answer on a scale from 1 to 10, where 1 means worst air quality and 10 means best air quality.",
                                         // 'In your opinion, which group is ' + stringDistrict +  ' (' + data.state + ') part of?',
-                              left: "No impact",
-                              right: "Most severe impact",
+                              left: "Worst air quality",
+                              right: "Best air quality",
                               choices: [1,2,3,4,5,6,7,8,9,10],
                               // choices: [
                               //   ['Group 1', '<span style=\'font-size:14px;font-weight:normal;\'>Group 1</span>'],
