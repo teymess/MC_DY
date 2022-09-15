@@ -1084,7 +1084,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                           {
                               id: 'LYL_prior',
                               orientation: 'H',
-                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your county ' + stringDistrict +  ' (' + data.state + '). How bad do you think air pollution is in ' + stringDistrict +'?<br>',
+                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your county ' + stringDistrict +  ' (' + data.state + '). How good do you think air quality is in ' + stringDistrict +'?<br>',
                               hint: "Provide an answer on a scale from 1 to 10, where 1 means worst air quality and 10 means best air quality.",
                                         // 'In your opinion, which group is ' + stringDistrict +  ' (' + data.state + ') part of?',
                               left: "Worst air quality",
