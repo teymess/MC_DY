@@ -1853,6 +1853,17 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
 
 
+                    stager.extendStep('Disclaimer', {
+                       name: 'Disclaimer',
+                       frame: 'leaflet_protection.htm',
+                       cb: function() {
+                           if (node.game.choice_outcome !== 'nothing') {
+                             node.done();
+                           }
+                      }
+                    });
+
+
 ///////////////////////////////////////////////////////////
               // FEEDBACK
               stager.extendStep('feedback', {
@@ -1903,19 +1914,31 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
       // END OF SURVEY
       //////////////////////////////////////////////////////////////////////////
           stager.extendStep('end', {
-              widget: {
-                  name: 'EndScreen',
-                  options: {
+            cb: function() {
+              if (node.game.choice_outcome === 'nothing') {
+
+                  node.game.endingPage = node.widgets.append('EndScreen', W.getHeader(), {
+                        feedback: false,
+                        showEmailForm: false,
+                        texts: {
+                            message: 'You have now completed this task and your data has been saved.' +
+                            ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>'
+                        },
+                });
+              }
+              else {
+              node.game.endingPage = node.widgets.append('EndScreen', W.getHeader(), {
                       feedback: false,
                       showEmailForm: false,
                       texts: {
                           message: 'You have now completed this task and your data has been saved.' +
                           ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>' +
                           ' <span style="color:#bf2b42;font-size:25px;"><b>IMPORTANT!</span></b> <b>We will post another HIT with a follow-up survey in</b> <span style="color:#bf2b42";><b>2 weeks</span></b>!<br><br>'
-                      },
-                  }
-              },
-              init: function() {
+                        },
+                });
+              }
+            },
+            init: function() {
                   node.game.doneButton.destroy();
                   node.say('end');
               }
