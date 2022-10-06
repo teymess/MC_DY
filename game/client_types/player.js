@@ -1760,6 +1760,18 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                 requiredChoice: true,
                                 shuffleChoices: false,
                                 hidden: true,
+                            },
+                            {
+                                id: 'straightline_check',
+                                  mainText: '<span style="font-weight: normal;color:gray;">Q11b</span> <span style="font-weight:bold;">Please select the word "Blue" from the options below.</span>',
+                                  choices: [
+                                    ['1', 'I strongly agree'],
+                                    ['2', 'Blue'],
+                                    ['3', 'I am neutral'],
+                                    ['4', 'I disgree'],
+                                    ['5', 'I strongly disagree']
+                                  ],
+                                  requiredChoice: true
                             }
                         ]
                     }
@@ -1783,11 +1795,11 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                     mainText: '<span style="font-weight: normal;color:gray;">Statement 6</span><br>' +
                                     '"How much air pollution will affect my health in the future mostly depends on me."',
                                     choices: [
-                                      ['1', 'I strongly agree'],
-                                      ['2', 'I agree'],
-                                      ['3', 'I am neutral'],
-                                      ['4', 'I disagree'],
                                       ['5', 'I strongly disagree'],
+                                      ['4', 'I disagree'],
+                                      ['3', 'I am neutral'],
+                                      ['2', 'I agree'],
+                                      ['1', 'I strongly agree'],
                                     ],
                                     requiredChoice: true,
                                     shuffleChoices: false,
@@ -1804,11 +1816,11 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                     mainText: '<span style="font-weight: normal;color:gray;">Statement 7</span><br>' +
                                     '"I can reduce the negative effect of air pollution on my health as much as I want if I really set my mind to it."',
                                     choices: [
-                                      ['1', 'I strongly agree'],
-                                      ['2', 'I agree'],
-                                      ['3', 'I am neutral'],
-                                      ['4', 'I disagree'],
                                       ['5', 'I strongly disagree'],
+                                      ['4', 'I disagree'],
+                                      ['3', 'I am neutral'],
+                                      ['2', 'I agree'],
+                                      ['1', 'I strongly agree'],
                                     ],
                                     requiredChoice: true,
                                     shuffleChoices: false,
