@@ -143,7 +143,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt1',
-                        mainText: '<span style="font-weight: normal;color:gray;">T1</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T1</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -184,7 +184,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt2',
-                        mainText: '<span style="font-weight: normal;color:gray;">T2</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T2</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -228,7 +228,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt3',
-                        mainText: '<span style="font-weight: normal;color:gray;">T3</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T3</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -269,7 +269,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt4',
-                        mainText: '<span style="font-weight: normal;color:gray;">T4</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T4</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -310,7 +310,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt5',
-                        mainText: '<span style="font-weight: normal;color:gray;">T5</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T5</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -351,7 +351,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt6',
-                        mainText: '<span style="font-weight: normal;color:gray;">T6</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T6</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -392,7 +392,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt7',
-                        mainText: '<span style="font-weight: normal;color:gray;">T7</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T7</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -433,7 +433,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt8',
-                        mainText: '<span style="font-weight: normal;color:gray;">T8</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T8</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -474,7 +474,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt9',
-                        mainText: '<span style="font-weight: normal;color:gray;">T9</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T9</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -515,7 +515,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt10',
-                        mainText: '<span style="font-weight: normal;color:gray;">T10</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T10</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -556,7 +556,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt11',
-                        mainText: '<span style="font-weight: normal;color:gray;">T11</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T11</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -597,7 +597,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt12',
-                        mainText: '<span style="font-weight: normal;color:gray;">T12</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T12</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -638,7 +638,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt13',
-                        mainText: '<span style="font-weight: normal;color:gray;">T13</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T13</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -679,7 +679,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt14',
-                        mainText: '<span style="font-weight: normal;color:gray;">T14</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T14</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -720,7 +720,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 forms: [
                     {
                         id: 'mt15',
-                        mainText: '<span style="font-weight: normal;color:gray;">T15</span> Have you seen this item earlier in the task? (You get $'+ node.game.settings.MEMORY_BONUS + ' if you answer correctly.)',
+                        mainText: '<span style="font-weight: normal;color:gray;">T15</span> Have you seen this item earlier in the task? (You get '+ node.game.settings.MEMORY_BONUS + ' INR if you answer correctly.)',
                         choices: ['No', 'Yes'],
                         requiredChoice: true
                     }
@@ -1612,12 +1612,12 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 }
 
                 if (node.game.contributionAmount == node.game.lifeLost) {
-                    node.game.guessBonus = 0.50
-                    W.setInnerHTML('payoff', '<img src="success.png" width="50px"> Your answer is <b>correct</b>! You receive a bonus of <b>$0.50</b>.<br>')
+                    node.game.guessBonus = 4
+                    W.setInnerHTML('payoff', '<img src="success.png" width="50px"> Your answer is <b>correct</b>! You receive a bonus of <b>40 INR</b>.<br>')
                 }
                 else if ((node.game.contributionAmount != node.game.lifeLost) && (node.game.contributionAmount >= (node.game.lifeLost - 0.5)) && (node.game.contributionAmount<= (node.game.lifeLost + 0.5))) {
-                    node.game.guessBonus = 0.20
-                    W.setInnerHTML('payoff', '<img src="almost_correct.png" width="50px"> Your answer is within half a year of the correct value! You receive a bonus of <b>$0.20</b>.<br>')
+                    node.game.guessBonus = 2
+                    W.setInnerHTML('payoff', '<img src="almost_correct.png" width="50px"> Your answer is within half a year of the correct value! You receive a bonus of <b>20 INR</b>.<br>')
                 }
                 else {
                     W.setInnerHTML('payoff', '<img src="failure.png" width="50px"> Your answer is <b>not correct</b>. Therefore, you receive no bonus for this question.<br>')

@@ -35,9 +35,9 @@ module.exports = {
          'Part_3_Filler_Task': 120000,
      },
 
-    BASE_PAY: 4,
-    TASK_2_BONUS: 0.05,
-    MEMORY_BONUS: 0.02,
+    //BASE_PAY: 4,
+    TASK_2_BONUS: 5,
+    MEMORY_BONUS: 2,
 
     // Exchange rate coins to dollars.
     EXCHANGE_RATE: 1,
