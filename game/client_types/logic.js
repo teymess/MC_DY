@@ -11,6 +11,7 @@
 
 const ngc = require('nodegame-client');
 const J = ngc.JSUS;
+const NDDB = require('NDDB');
 
 module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
@@ -25,7 +26,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
     const redirectUrls = {
         completed: 'https://dkr1.ssisurveys.com/projects/end?rst=1&psid=',
         screenOut: 'https://dkr1.ssisurveys.com/projects/end?rst=2&psid=',
-        //quotaFull: 'https://dkr1.ssisurveys.com/projects/end?rst=3&psid=',
+        quotaFull: 'https://dkr1.ssisurveys.com/projects/end?rst=3&psid=',
     };
 
     const redirect = (id, action) => {
@@ -40,19 +41,19 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
         let client = channel.registry.getClient(id);
         // // Check if there is demographic data.
-        //let demoData = memory.demo_player.get(id);
+        let demoData = memory.demo_player.get(id);
 
-        // Decrease quota if necessary. TODO: check condition.
-        // if (action !== 'completed' && action !== 'reconnect' && demoData && !client.redirected) {
-        //     console.log('Removing from quota...');
-        //     setup.decreaseQuota(demoData);
-        // }
-        //
-        // // Increase quota if necessary (on reconnect)
-        // if (action === 'reconnect' && demoData) {
-        //   console.log('Adding to quota...');
-        //   setup.increaseQuota(demoData);
-        // }
+        //Decrease quota if necessary. TODO: check condition.
+        if (action !== 'completed' && action !== 'reconnect' && demoData && !client.redirected) {
+            console.log('Removing from quota...');
+            setup.decreaseQuota(demoData);
+        }
+
+        // Increase quota if necessary (on reconnect)
+        if (action === 'reconnect' && demoData) {
+          console.log('Adding to quota...');
+          setup.increaseQuota(demoData);
+        }
 
         // redirect if player was not redirected before
         if (action !== 'disconnect' && action !== 'reconnect' && !client.redirected) {
@@ -96,6 +97,25 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
               }
           });
       }
+
+      memory.on('insert', item => {
+            if (item.stepId === 'Part_1_q2') {
+                if (setup.increaseQuota(item)) {
+                  console.log('Quota is full!');
+                  // This redirect is a bit brutal, perhaps you want to send them
+                  // a message or have an intermediate step/page. But you may ask Madalin.
+                  // console.log('Redirecting');
+                  let id = item.player;
+                  // let url = `https://dkr1.ssisurveys.com/projects/end?rst=3&psid=${id}`;
+                  // setTimeout(() => node.redirect(url, id), 100);
+                  console.log("Sending to redirect funtion due to quota full...");
+                  redirect(id, "quotaFull");
+                }
+                else {
+                    console.log('Quota is not full!');
+                }
+            }
+        });
 
         memory.stream();
 
@@ -162,6 +182,15 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             // Decrease quota.
             console.log("Sending to redirect funtion due to reconnection...");
             redirect(id, "reconnect");
+        });
+
+        node.on.data('QUOTA', function() {
+            let quotaDb = NDDB.db();
+            // Set working directory to data dir of game room.
+            quotaDb.setWD(gameRoom.dataDir);
+            let quotas = setup.quotas;
+            quotaDb.insert({ quotas });
+            quotaDb.save('quotas.csv', () => console.log("Saved quota db into quotas.csv'"));
         });
 
         node.on.data('done', function(msg) {

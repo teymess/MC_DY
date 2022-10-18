@@ -28,6 +28,44 @@
         promptOnleave: !setup.debug
     };
 
+    setup.quotaLimits = {
+        Male1824: 1, // originally 246 (1 collected in 1st test, 38 in soft launch)
+        Male2534: 254, // originally 318 (5 collected in 1st test, 89 collected in soft launch)
+        Male3544: 218, // originally 273 (64 collected in soft launch)
+        Male4554: 163, // originally 204 (26 collected in soft launch)
+        Male55: 198, // originally 248 (6 collected in soft launch)
+        Female1824: 185, // originally 231 (3 collected in 1st test, 25 collected in soft launch)
+        Female2534: 239, // originally 299 (4 collected in 1st test, 61 collected in soft launch)
+        Female3544: 206, // originally 257 (1 collected in 1st test, 49 collected in soft launch)
+        Female4554: 154, // originally 192 (4 collected in soft launch)
+        Female55: 186 // originally 232 (4 collected in soft launch)
+    };
+
+    setup.quotas = {};
+
+    setup.determineHash = item => {
+
+        if (!item.gender || item.gender.value === "Other" ||
+        item.gender.value === "Prefer not to say") return;
+
+        var ageGroup;
+
+        if (item.age.value < 25) {
+            ageGroup = 1824
+        }
+        else if (item.age.value > 24 && item.age.value < 35 ) {
+            ageGroup = 2534
+        }
+        else if (item.age.value > 34 && item.age.value < 45 ) {
+            ageGroup = 3544
+        }
+        else if (item.age.value > 44 && item.age.value < 55) {
+            ageGroup = 4554
+        }
+        else if (item.age.value > 54) {
+          ageGroup = 55
+        }
+
     setup.getCountyIdx = (state, county) => {
         return state + '_' + county;
     };
