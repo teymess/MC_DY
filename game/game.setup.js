@@ -65,6 +65,7 @@
         else if (item.age.value > 54) {
           ageGroup = 55
         }
+    }
 
     setup.getCountyIdx = (state, county) => {
         return state + '_' + county;
