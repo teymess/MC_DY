@@ -954,7 +954,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         id: 'q4_4',
                         orientation: 'H',
                         mainText: '<span style="font-weight: normal;color:gray;">Q9</span> What is your age group?',
-                        choices: ['18 - 25','26 - 30','31 - 35','36 - 40','41 – 45','46 – 50','51 – 55','56 – 60','61 – 65','66 +'],
+                        choices: ['18 - 24','25 - 34','35 - 44','45 - 54','55 – 64','65+'],
                         shuffleChoices: false,
                         requiredChoice: true,
                         choicesSetSize: 4,
@@ -1029,7 +1029,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     {
                         id: 'P3_q1',
                         orientation: 'H',
-                        mainText: '<span style="font-weight: normal;color:gray;">Q3</span> Which of the following health conditions <b>is not</b> caused by exposure to air pollution?<br>',
+                        mainText: '<span style="font-weight: normal;color:gray;">Q2</span> Which of the following health conditions <b>is not</b> caused by exposure to air pollution?<br>',
                         //hint: '<span style="color:gray;font-size:14px;">(There are several correct answers and you have to find all of them.)</span>',
                         // Number of choices per row/column.
                         //choicesSetSize: 6,
@@ -1059,7 +1059,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     {
                         id: 'P2_q1',
                         orientation: 'H',
-                        mainText: '<span style="font-weight: normal;color:gray;">Q4</span> How many years of life do people lose on average by being exposed to annual air pollution concentrations that are 20 &mu;/m<sup>3</sup> higher than the WHO recommended level? <span style="font-weight: normal;">*</span>',
+                        mainText: '<span style="font-weight: normal;color:gray;">Q3</span> How many years of life do people lose on average by being exposed to annual air pollution concentrations that are 20 &mu;/m<sup>3</sup> higher than the WHO recommended level? <span style="font-weight: normal;">*</span>',
                         choices: ["0 years", "0.25 years", "0.5 years", "1 year", "2 years"],
                         correctChoice: 4,
                     }
@@ -1097,7 +1097,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                           {
                               id: 'LYL_prior',
                               orientation: 'H',
-                              mainText: '<span style="font-weight: normal;color:gray;">Q5</span> Think of your district ' + stringDistrict +  ' (' + data.state + '). How good do you think air quality is in ' + stringDistrict +'?<br>',
+                              mainText: '<span style="font-weight: normal;color:gray;">Q4</span> Think of your district ' + stringDistrict +  ' (' + data.state + '). How good do you think air quality is in ' + stringDistrict +'?<br>',
                               hint: "Provide an answer on a scale from 1 to 10, where 1 means worst air quality and 10 means best air quality.",
                                         // 'In your opinion, which group is ' + stringDistrict +  ' (' + data.state + ') part of?',
                               left: "Worst air quality",
@@ -1129,7 +1129,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                             {
                                 id: 'T_confident',
                                 orientation: 'H',
-                                mainText: '<span style="font-weight: normal;color:gray;">Q6</span> How confident are you about your answer to the previous question?</span>',
+                                mainText: '<span style="font-weight: normal;color:gray;">Q5</span> How confident are you about your answer to the previous question?</span>',
                                 choices: [
                                   ['1', 'Not confident at all'],
                                   ['2', 'Not very confident'],
@@ -1152,7 +1152,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                               {
                               id: 'pollution_worry',
                               orientation: 'H',
-                              mainText: '<span style="font-weight: normal;color:gray;">Q7</span> In general, how worried are you about the air pollution in ' + stringDistrict +  ' (' + data.state + ')?',
+                              mainText: '<span style="font-weight: normal;color:gray;">Q6</span> In general, how worried are you about the air pollution in ' + stringDistrict +  ' (' + data.state + ')?',
                               left: 'Not worried at all',
                               right: 'Very worried',
                               choices: [ '1', '2', '3', '4', '5', '6', '7'],
@@ -1506,7 +1506,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             cb: function() {
                 var effort_payoff;
                 effort_payoff = node.game.correct * node.game.settings.TASK_2_BONUS;
-                effort_payoff = effort_payoff.toFixed(2);
+                effort_payoff = effort_payoff.toFixed();
                 W.setInnerHTML('bonus', node.game.settings.TASK_2_BONUS);
                 W.setInnerHTML('correct', node.game.correct);
                 W.setInnerHTML('payoff', effort_payoff);
@@ -1766,6 +1766,12 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                 requiredChoice: true,
                                 shuffleChoices: false,
                                 hidden: true,
+                                onclick: function(value, removed) {
+                                  var w, forms, len;
+                                  forms = node.widgets.lastAppended.formsById
+                                  w = forms.straightline_check;
+                                  w.show();
+                                }
                             },
                             {
                                 id: 'straightline_check',
@@ -1777,7 +1783,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                     ['4', 'I disgree'],
                                     ['5', 'I strongly disagree']
                                   ],
-                                  requiredChoice: true
+                                  requiredChoice: true,
+                                  hidden: true
                             }
                         ]
                     }
@@ -1936,28 +1943,32 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
               if (node.game.choice_outcome === 'nothing') {
 
                   node.game.endingPage = node.widgets.append('EndScreen', W.getHeader(), {
-                        feedback: false,
-                        showEmailForm: false,
+                    feedback: false,
+                    showEmailForm: false,
+                    showTotalWin: false,
+                    showExitCode: false,
                         texts: {
                             message: 'You have now completed this task and your data has been saved.' +
-                            ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>'
+                            ' Please click "Next" to be redirected to the panel page.<br><br>'
                         },
                 });
               }
               else {
               node.game.endingPage = node.widgets.append('EndScreen', W.getHeader(), {
-                      feedback: false,
-                      showEmailForm: false,
+                feedback: false,
+                showEmailForm: false,
+                showTotalWin: false,
+                showExitCode: false,
                       texts: {
                           message: 'You have now completed this task and your data has been saved.' +
-                          ' Please go back to the Amazon Mechanical Turk web site and submit the HIT.<br><br>' +
-                          ' <span style="color:#bf2b42;font-size:25px;"><b>IMPORTANT!</span></b> <b>We will post another HIT with a follow-up survey in</b> <span style="color:#bf2b42";><b>2 weeks</span></b>!<br><br>'
+                          ' Please click "Next" to be redirected to the panel page.<br><br>' +
+                          ' <span style="color:#bf2b42;font-size:25px;"><b>IMPORTANT!</span></b> <b>We may invite you to a follow-up survey in</b> <span style="color:#bf2b42";><b>2 weeks</span></b>!<br><br>'
                         },
                 });
               }
             },
             init: function() {
-                  node.game.doneButton.destroy();
+                  //node.game.doneButton.destroy();
                   node.say('end');
               }
           });

@@ -124,6 +124,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             header: [ 'timestamp', 'player', 'email' ]
         });
 
+        memory.index('player_age', item => {
+            if (item.stepId === 'Part_1_q2') return item.player;
+        });
+
         memory.index('county_player', item => {
             if (item.stepId === 'Part_1_q3') return item.player;
         });
@@ -241,20 +245,41 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 gameRoom.updateWin(id, bonus);
             }
 
-            // else if (step === 'Part_1_q3') {
-            //
-            //   let { state } = getStateCounty(msg.from);
-            //
-            //     if (state !== 'California') {
-            //         let clientObj = channel.registry.getClient(id);
-            //         clientObj.allowReconnect = false;
-            //         node.redirect('location_error.htm', id);
-            //     }
-            // }
+            else if (step === 'Part_1_q4') {
+                let inconsistent = 0;
+                let ageBin = msg.data.q4_4.value;
+                let ageValue = memory.player_age.get(msg.from);
+                ageValue = ageValue.q2_1.value;
+                console.log('This player is ' + ageValue + ' years old and belongs to the age range ' + ageBin);
+
+                if (ageBin === "18 - 24" && (ageValue < 18 || ageValue > 24)) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+                else if (ageBin === "25 - 34" && (ageValue < 25 || ageValue > 34)) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+                else if (ageBin === "35 - 44" && (ageValue < 35 || ageValue > 44)) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+                else if (ageBin === "45 - 54" && (ageValue < 45 || ageValue > 54)) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+                else if (ageBin === "55 - 64" && (ageValue < 55 || ageValue > 64)) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+                else if (ageBin === "65+" && ageValue < 65 ) {
+                  console.log("Sending to redirect funtion due to age inconsistency...");
+                  redirect(id, "screenOut");
+                }
+            }
 
             else if (step === 'Part_3_Filler_Task') {
                 let bonus = msg.data.effort_count * settings.TASK_2_BONUS;
-                bonus = bonus.toFixed();
                 gameRoom.updateWin(id, bonus);
             }
 
@@ -364,4 +389,12 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
         let county = info.forms.district.value;
         return { state, county };
     }
+
+    node.on.done('end', function(msg) {
+            console.log('Redirecting');
+            let id = msg.from;
+            //let url = `https://dkr1.ssisurveys.com/projects/end?rst=1&psid=${id}&basic=78806`;
+            console.log("Sending to redirect funtion due to completion...");
+            redirect(id, "completed");
+        });
 };
