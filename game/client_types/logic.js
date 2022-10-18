@@ -246,7 +246,6 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             }
 
             else if (step === 'Part_1_q4') {
-                let inconsistent = 0;
                 let ageBin = msg.data.q4_4.value;
                 let ageValue = memory.player_age.get(msg.from);
                 ageValue = ageValue.q2_1.value;
