@@ -240,19 +240,20 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 gameRoom.updateWin(id, bonus);
             }
 
-            else if (step === 'Part_1_q3') {
-
-              let { state } = getStateCounty(msg.from);
-
-                if (state !== 'California') {
-                    let clientObj = channel.registry.getClient(id);
-                    clientObj.allowReconnect = false;
-                    node.redirect('location_error.htm', id);
-                }
-            }
+            // else if (step === 'Part_1_q3') {
+            //
+            //   let { state } = getStateCounty(msg.from);
+            //
+            //     if (state !== 'California') {
+            //         let clientObj = channel.registry.getClient(id);
+            //         clientObj.allowReconnect = false;
+            //         node.redirect('location_error.htm', id);
+            //     }
+            // }
 
             else if (step === 'Part_3_Filler_Task') {
                 let bonus = msg.data.effort_count * settings.TASK_2_BONUS;
+                bonus = bonus.toFixed();
                 gameRoom.updateWin(id, bonus);
             }
 

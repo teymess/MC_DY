@@ -758,10 +758,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             memory_correct = h1.bonusMemory1 + h1.bonusMemory2 + h1.bonusMemory3 + h1.bonusMemory4 + h1.bonusMemory5 +
             h1.bonusMemory6 + h1.bonusMemory7 + h1.bonusMemory8 + h1.bonusMemory9 + h1.bonusMemory10 + h1.bonusMemory11 +
             h1.bonusMemory12 + h1.bonusMemory13 + h1.bonusMemory14 + h1.bonusMemory15;
-            memory_correct = memory_correct * 50;
+            memory_correct = memory_correct / 2;
             memory_correct = memory_correct.toFixed();
             memory_payoff = memory_correct * node.game.settings.MEMORY_BONUS;
-            memory_payoff = memory_payoff.toFixed(2);
+            memory_payoff = memory_payoff.toFixed();
             W.setInnerHTML('bonus', node.game.settings.MEMORY_BONUS);
             W.setInnerHTML('correct', memory_correct);
             W.setInnerHTML('payoff', memory_payoff);
@@ -899,7 +899,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         id: 'q4_2',
                         orientation: 'H',
                         mainText: '<span style="font-weight: normal;color:gray;">Q6</span> What is the highest educational level that you have completed?',
-                        choices: ['Eighth grade or less','High school','College degree','Masters degree','Doctorate or higher'],
+                        choices: ['No formal education','Primary school','Secondary school','Vocational training','Bachelor degree','Masters degree or higher'],
                         shuffleChoices: false,
                         requiredChoice: true
                     },
@@ -923,16 +923,15 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         '- the revenue from self-employment <br>' +
                         '- all income from casual labour.</span>',
                         choices: [
-                          ["Group 1", 'Less than $15,000'],
-                          ["Group 2", '$15,000 – $25,000'],
-                          ["Group 3", '$25,000 – $40,000'],
-                          ["Group 4", '$40,000 – $50,000'],
-                          ["Group 5", '$50,000 – $70,000'],
-                          ["Group 6", '$70,000 – $85,000'],
-                          ["Group 7", '$85,000 – $110,000'],
-                          ["Group 8", '$110,000 - $140,000'],
-                          ["Group 9", '$140,000 - $200,000'],
-                          ["Group 10", 'More than $200,000']
+                          [2, 'Less than 45,000 INR'],
+                          [3, '45,000 INR - 75,000 INR'],
+                          [4, '75,000 INR - 90,000 INR'],
+                          [5, '90,000 INR - 1,10,000 INR'],
+                          [6, '1,10,000 INR - 1,30,000 INR'],
+                          [7, '1,30,000 INR - 1,60,000 INR'],
+                          [8, '1,60,000 INR - 2,00,000 INR'],
+                          [9, '2,00,000 INR - 3,00,000 INR'],
+                          [10, 'More than 3,00,000 INR']
                       ],
                         shuffleChoices: false,
                         requiredChoice: true,
@@ -1026,11 +1025,11 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                         mainText: '<span style="font-weight: normal;color:gray;">Q3</span> Which of the following health conditions <b>is not</b> caused by exposure to air pollution?<br>',
                         //hint: '<span style="color:gray;font-size:14px;">(There are several correct answers and you have to find all of them.)</span>',
                         // Number of choices per row/column.
-                        choicesSetSize: 6,
+                        //choicesSetSize: 6,
                         choices: ["HIV/AIDS", "Neurological disease",
                         "Lung cancer", "Heart disease", "Respiratory infections"],
                         //selectMultiple: true,
-                        correctChoice: [0],
+                        correctChoice: 0,
                     }
                 ]
             }
