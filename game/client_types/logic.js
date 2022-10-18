@@ -41,7 +41,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
         let client = channel.registry.getClient(id);
         // // Check if there is demographic data.
-        let demoData = memory.demo_player.get(id);
+        let demoData = memory.player_age.get(id);
 
         //Decrease quota if necessary. TODO: check condition.
         if (action !== 'completed' && action !== 'reconnect' && demoData && !client.redirected) {

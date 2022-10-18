@@ -29,7 +29,7 @@
     };
 
     setup.quotaLimits = {
-        Male1824: 1, // originally 246 (1 collected in 1st test, 38 in soft launch)
+        Male1824: 0, // originally 246 (1 collected in 1st test, 38 in soft launch)
         Male2534: 254, // originally 318 (5 collected in 1st test, 89 collected in soft launch)
         Male3544: 218, // originally 273 (64 collected in soft launch)
         Male4554: 163, // originally 204 (26 collected in soft launch)
@@ -45,53 +45,56 @@
 
     setup.determineHash = item => {
 
-        if (!item.gender || item.gender.value === "Other" ||
-        item.gender.value === "Prefer not to say") return;
+        if (!item.q2_2 || item.q2_2.value === "Other" ||
+        item.q2_2.value === "Prefer not to say") return;
 
         var ageGroup;
 
-        if (item.age.value < 25) {
+        if (item.q2_1.value < 25) {
             ageGroup = 1824
         }
-        else if (item.age.value > 24 && item.age.value < 35 ) {
+        else if (item.q2_1.value > 24 && item.q2_1.value < 35 ) {
             ageGroup = 2534
         }
-        else if (item.age.value > 34 && item.age.value < 45 ) {
+        else if (item.q2_1.value > 34 && item.q2_1.value < 45 ) {
             ageGroup = 3544
         }
-        else if (item.age.value > 44 && item.age.value < 55) {
+        else if (item.q2_1.value > 44 && item.q2_1.value < 55) {
             ageGroup = 4554
         }
-        else if (item.age.value > 54) {
+        else if (item.q2_1.value > 54) {
             ageGroup = 55
         }
 
-        let hash = item.gender.value + '' + ageGroup;
-        console.log(hash);
+        // Generate simple hash for gender and ageGroup. (actual value from users need to be adjusted
 
-        return hash;
-    };
+      let hash = item.q2_2.value + '' + ageGroup;
+      console.log(hash);
 
-    setup.increaseQuota = item => {
-        let hash = setup.determineHash(item);
-        let limit = setup.quotaLimits[hash];
-        //console.log(limit, hash);
+      return hash;
+  };
 
-        // Increment quota or add first entry.
-        setup.quotas[hash] = setup.quotas[hash] ? ++setup.quotas[hash] : 1;
+  setup.increaseQuota = item => {
+      console.log('Prompting quota increase..');
+      let hash = setup.determineHash(item);
+      let limit = setup.quotaLimits[hash];
+      //console.log(limit, hash);
 
-        console.log(setup.quotas[hash]);
+      // Increment quota or add first entry.
+      setup.quotas[hash] = setup.quotas[hash] ? ++setup.quotas[hash] : 1;
 
-        // Check if the quota is met.
-        return setup.quotas[hash] > limit;
-    };
+      console.log(setup.quotas[hash]);
 
-    // Assumes increaseQuota was called at least once per hash.
-    setup.decreaseQuota = item => {
-        let hash = setup.determineHash(item);
-        setup.quotas[hash] -= 1;
-        console.log(setup.quotas[hash]);
-    };
+      // Check if the quota is met.
+      return setup.quotas[hash] > limit;
+  };
+
+  // Assumes increaseQuota was called at least once per hash.
+  setup.decreaseQuota = item => {
+      let hash = setup.determineHash(item);
+      setup.quotas[hash] -= 1;
+      console.log(setup.quotas[hash]);
+  };
 
     setup.getCountyIdx = (state, county) => {
         return state + '_' + county;
