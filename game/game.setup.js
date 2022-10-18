@@ -63,9 +63,35 @@
             ageGroup = 4554
         }
         else if (item.age.value > 54) {
-          ageGroup = 55
+            ageGroup = 55
         }
-    }
+
+        let hash = item.gender.value + '' + ageGroup;
+        console.log(hash);
+
+        return hash;
+    };
+
+    setup.increaseQuota = item => {
+        let hash = setup.determineHash(item);
+        let limit = setup.quotaLimits[hash];
+        //console.log(limit, hash);
+
+        // Increment quota or add first entry.
+        setup.quotas[hash] = setup.quotas[hash] ? ++setup.quotas[hash] : 1;
+
+        console.log(setup.quotas[hash]);
+
+        // Check if the quota is met.
+        return setup.quotas[hash] > limit;
+    };
+
+    // Assumes increaseQuota was called at least once per hash.
+    setup.decreaseQuota = item => {
+        let hash = setup.determineHash(item);
+        setup.quotas[hash] -= 1;
+        console.log(setup.quotas[hash]);
+    };
 
     setup.getCountyIdx = (state, county) => {
         return state + '_' + county;
