@@ -64,6 +64,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
         client.allowReconnect = false;
         // Redirect.
             console.log('Redirecting...');
+            console.log(id);
             setTimeout(() => node.redirect(url, id), 100);
         }
     };

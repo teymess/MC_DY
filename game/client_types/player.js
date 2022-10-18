@@ -58,7 +58,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                 node.game.pause('Disconnection detected. Please refresh ' +
                 'to reconnect.');
                 alert('Disconnection detected. Please refresh the page ' +
-                'to continue. You might have to use the original link provided on MTurk.');
+                'to continue. You might have to use the original link provided by Dynata.');
             },
             connectCb: function() {
                 // If the user refresh the page, this is not called, it
@@ -67,6 +67,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
             }
         });
 
+        node.on('CONSENT_REJECTING', function() {
+            console.log('Rejection detected!')
+            node.widgets.destroyAll();
+        });
         // No need to show the wait for other players screen in single-player
         // games.
         W.init({ waitScreen: false });
@@ -79,7 +83,10 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 /////////////////////////////////////////////////////////////////////////////////
     stager.extendStep('consent', {
         donebutton: false,
-        widget: 'Consent'
+        widget: {
+            name: 'Consent',
+            disconnect: false
+        }
     });
 
     //////////////////////////////////////////////////////////////////
