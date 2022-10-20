@@ -1778,8 +1778,8 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                                   mainText: '<span style="font-weight: normal;color:gray;">Q11b</span> <span style="font-weight:bold;">Please select the word "Blue" from the options below.</span>',
                                   choices: [
                                     ['1', 'I strongly agree'],
-                                    ['2', 'Blue'],
-                                    ['3', 'I am neutral'],
+                                    ['2', 'I agree'],
+                                    ['3', 'Blue'],
                                     ['4', 'I disgree'],
                                     ['5', 'I strongly disagree']
                                   ],
