@@ -1029,14 +1029,14 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     {
                         id: 'P3_q1',
                         orientation: 'H',
-                        mainText: '<span style="font-weight: normal;color:gray;">Q2</span> Which of the following health conditions <b>is not</b> caused by exposure to air pollution?<br>',
+                        mainText: '<span style="font-weight: normal;color:gray;">Q2</span> Which of the following health conditions can be caused by exposure to air pollution?<br>',
                         //hint: '<span style="color:gray;font-size:14px;">(There are several correct answers and you have to find all of them.)</span>',
                         // Number of choices per row/column.
                         //choicesSetSize: 6,
-                        choices: ["HIV/AIDS", "Neurological disease",
-                        "Lung cancer", "Heart disease", "Respiratory infections"],
+                        choices: ["HIV/AIDS", "Covid-19",
+                        "Lung cancer"],
                         //selectMultiple: true,
-                        correctChoice: 0,
+                        correctChoice: 2,
                     }
                 ]
             }
