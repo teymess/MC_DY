@@ -1059,7 +1059,7 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
                     {
                         id: 'P2_q1',
                         orientation: 'H',
-                        mainText: '<span style="font-weight: normal;color:gray;">Q3</span> How many years of life do people lose on average by being exposed to annual air pollution concentrations that are 20 &mu;/m<sup>3</sup> higher than the WHO recommended level? <span style="font-weight: normal;">*</span>',
+                        mainText: '<span style="font-weight: normal;color:gray;">Q3</span> How many years of life do people lose on average by being exposed to annual air pollution concentrations that are 20 &mu;g/m<sup>3</sup> higher than the WHO recommended level? <span style="font-weight: normal;">*</span>',
                         choices: ["0 years", "0.25 years", "0.5 years", "1 year", "2 years"],
                         correctChoice: 4,
                     }
@@ -1619,14 +1619,17 @@ module.exports = function(treatmentName, settings, stager, setup, gameRoom) {
 
                 if (node.game.contributionAmount == node.game.lifeLost) {
                     node.game.guessBonus = 4
-                    W.setInnerHTML('payoff', '<img src="success.png" width="50px"> Your answer is <b>correct</b>! You receive a bonus of <b>40 INR</b>.<br>')
+                    W.setInnerHTML('payoff', '<img src="success.png" width="50px"> Your answer is <b>correct</b>! You receive a bonus of <b>40 INR</b>.<br>'),
+                    W.adjustFrameHeight();
                 }
                 else if ((node.game.contributionAmount != node.game.lifeLost) && (node.game.contributionAmount >= (node.game.lifeLost - 0.5)) && (node.game.contributionAmount<= (node.game.lifeLost + 0.5))) {
                     node.game.guessBonus = 2
-                    W.setInnerHTML('payoff', '<img src="almost_correct.png" width="50px"> Your answer is within half a year of the correct value! You receive a bonus of <b>20 INR</b>.<br>')
+                    W.setInnerHTML('payoff', '<img src="almost_correct.png" width="50px"> Your answer is within half a year of the correct value! You receive a bonus of <b>20 INR</b>.<br>'),
+                    W.adjustFrameHeight();
                 }
                 else {
-                    W.setInnerHTML('payoff', '<img src="failure.png" width="50px"> Your answer is <b>not correct</b>. Therefore, you receive no bonus for this question.<br>')
+                    W.setInnerHTML('payoff', '<img src="failure.png" width="50px"> Your answer is <b>not correct</b>. Therefore, you receive no bonus for this question.<br>'),
+                    W.adjustFrameHeight();
                 }
                 result = W.gid('result');
                 if (result.style.display === 'none') {
