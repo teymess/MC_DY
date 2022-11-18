@@ -29,16 +29,16 @@
     };
 
     setup.quotaLimits = {
-        Male1824: 197, // 
-        Male2534: 254, //
-        Male3544: 218, //
-        Male4554: 163, //
-        Male55: 198, //
-        Female1824: 185, //
-        Female2534: 239, //
-        Female3544: 206, //
-        Female4554: 154, //
-        Female55: 186 //
+        Male1824: 166, // 197
+        Male2534: 204, // 254
+        Male3544: 190, // 218
+        Male4554: 151, // 163
+        Male55: 195, // 198
+        Female1824: 165, // 185
+        Female2534: 204, // 239
+        Female3544: 182, // 206
+        Female4554: 153, // 154
+        Female55: 186 // 186
     };
 
     setup.quotas = {};
